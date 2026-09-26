@@ -24,7 +24,29 @@ def setup_logging(verbose=False):
 
 def parse_arguments():
     """Parse command-line arguments."""
-    pass # TODO: implement
+    parser = argparse.ArgumentParser(description="DS 3500 MP1 Data Pipeline")
+    parser.add_argument(
+        "--input", "-i",
+        required=True,
+        help="Path to the input file",
+    )
+    parser.add_argument(
+        "--output", "-o",
+        required=True,
+        help="Path to the output file",
+    )
+    parser.add_argument(
+        "--format",
+        choices=["csv", "json"],
+        default="csv",
+        help="Output format: csv or json (default: csv)",
+    )
+    parser.add_argument(
+        "--verbose", "-v",
+        action="store_true",
+        help="Enable verbose (DEBUG) logging",
+    )
+    return parser.parse_args()
 
 def validate_input(filepath):
     """Check whether the input path exists and is a file."""
