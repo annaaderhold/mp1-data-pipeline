@@ -15,7 +15,12 @@ logger = logging.getLogger(__name__)
 
 def setup_logging(verbose=False):
     """Configure logging for the pipeline."""
-    pass # TODO: implement
+    level = logging.DEBUG if verbose else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s %(levelname)s %(message)s",
+        datefmt="%H:%M:%S",
+    )
 
 def parse_arguments():
     """Parse command-line arguments."""
