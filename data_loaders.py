@@ -4,8 +4,7 @@ import pandas as pd
 import json
 import yaml
 
-# Do not call logging.basicConfig() here.
-# Use the logging configuration from Part 1.
+
 logger = logging.getLogger(__name__)
 
 
